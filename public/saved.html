@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <title>Koodoo_cat</title>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lekton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/materialize.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sharer.js@latest/sharer.min.js"></script>
+
+    <script src="app1.js"> </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+        .header {
+            color: white;
+            font-size: 2rem;
+        }
+
+        .li {
+            color: black;
+            font-family: 'Lekton', sans-serif;
+        }
+
+        .note {
+            font-family: 'Lekton', sans-serif;
+        }
+
+        .notetitle {
+            color: darkgreen;
+            font-family: 'Lekton', sans-serif;
+        }
+
+        .logo {
+            width: 40%;
+        }
+
+        .fa {
+            padding: 10px;
+            font-size: 20px;
+            width: 50px;
+            text-align: center;
+            text-decoration: none;
+            margin: 1px 1px;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-linkedin {
+            background: #007bb5;
+            color: white;
+        }
+
+        .fa-google {
+            background: #dd4b39;
+            color: white;
+        }
+    </style>
+    </style>
+</head>
+
+<body>
+    <nav style="background-color: white;">
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo"><img src="assets/images/2.png" style="width: 5rem; margin-left: 2rem;"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/home" class="li">Home</a></li>
+                <li><a href="/saved_articles" class="li">Saved Articles</a></li>
+                <li><a href="/scrape" class="li">Scrape New Articles</a></li>
+                <!-- <li><a href="badges.html" class="li">Clear Articles</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="sass.html">Home</a></li>
+        <li><a href="badges.html">Saved Articles</a></li>
+        <li><a href="badges.html">Scrape New Articles</a></li>
+        <!-- <li><a href="badges.html">Clear Articles</a></li> -->
+
+    </ul>
+
+    <div class="parallax-container">
+        <div class="parallax"><img src="assets/images/parallax.jpg"></div>
+        <h1 style="color: white; font-family: 'Lekton', sans-serif;float: right;margin-right: 2rem; margin-top: 8rem;">
+            All Tech News On One Page |
+        </h1>
+    </div>
+
+    <div class="section" style="background-color: black;">
+
+        <div id="savedArticlesDiv">
+
+        </div>
+
+        <div class="fixed-action-btn">
+            <a class="btn-floating btn-large red">
+                <i class="large material-icons">share</i>
+            </a>
+            <ul>
+                <li><a class="btn-floating  fa fa-twitter" data-sharer="twitter"
+                        data-title="Hey! Check out new article that I found on Koodoo_Cat!"
+                        data-hashtags="awesome, Koodoo_Cat, technews" data-url="http://localhost:3000/"></a></li>
+
+                <li><a class="btn-floating fa fa-facebook" data-sharer="facebook" data-hashtag="hashtag"
+                        data-url="http://localhost:3000/"></a></li>
+
+                <li><a class="btn-floating fa fa-linkedin" data-sharer="linkedin" data-url="http://localhost:3000/"></a>
+                </li>
+
+                <li><a class="btn-floating fa fa-google" data-sharer="email" data-title="Koodoo_Cat URL"
+                        data-url="http://localhost:3000/"
+                        data-subject="Hey! Check out new article that I found on Koodoo_Cat!"
+                        data-to="some@email.com"></a></li>
+            </ul>
+        </div>
+
+        <!-- Modal Structure -->
+        <div id="modal1" class="modal">
+            <div class="modal-content" id="modalContent">
+                <div class="row" id="savednotes">
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <footer class="page-footer">
+        <div class="row">
+            <div class="col s10 m5">
+                <div class="container" style="color: black;  font-family: 'Lekton', sans-serif; margin: 3rem;">
+                    © 2019 Copyright Text
+                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <p id="follow-me" style="padding-left: 40rem;">
+                    <a href="#" target="blank"><img class="logo" src="assets/images/inst.png"></a>
+                    <a href="#" target="blank"> <img class="logo" src="assets/images/facebook.png"></a>
+                    <a href="#" target="blank"> <img class="logo" src="assets/images/skype-logo.jpg"></a>
+                    <a href="#" target="blank"> <img class="logo" src="assets/images/twitter-logo.png"></a>
+                </p>
+            </div>
+        </div>
+
+    </footer>
+    <script src="assets/js/materialize.js"> </script>
+
+</body>
+
+</html>

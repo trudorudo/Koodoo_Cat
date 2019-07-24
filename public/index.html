@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lekton&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/materialize.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <style>
+        .header {
+            color: white;
+            font-size: 2rem;
+        }
+
+        .li {
+            color: black;
+            font-family: 'Lekton', sans-serif;
+        }
+
+        .logo {
+            width: 40%;
+        }
+    </style>
+</head>
+
+<body>
+    <nav style=" background-color: white;">
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo"><img src="assets/images/2.png" style="width: 5rem; margin-left: 2rem;"></a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="/home" class="li">Home</a></li>
+                <li><a href="/saved_articles" class="li">Saved Articles</a></li>
+                <li><a href="/scrape" class="li">Scrape New Articles</a></li>
+                <!-- <li><a href="badges.html" class="li">Clear Articles</a></li> -->
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="/home">Home</a></li>
+        <li><a href="/saved_articles">Saved Articles</a></li>
+        <li><a href="scrape">Scrape New Articles</a></li>
+        <!-- <li><a href="badges.html">Clear Articles</a></li> -->
+
+    </ul>
+
+    <div class="parallax-container">
+        <div class="parallax"><img src="assets/images/parallax.jpg"></div>
+        <h1 id="txt" style="color: white; font-family: 'Lekton', sans-serif;float: right;margin-right: 2rem; margin-top: 8rem;">
+            
+        </h1>
+    </div>
+
+    <div class="section" style="background-color: black;">
+
+        <div id="articlesDiv">
+        </div>
+
+
+    </div>
+
+    <footer class="page-footer">
+        <div class="row">
+            <div class="col s10 m5">
+                <div class="container" style="color: black;  font-family: 'Lekton', sans-serif; margin: 3rem;">
+                    © 2019 Copyright Text
+                    <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <p id="follow-me" style="padding-left: 40rem;">
+                    <a href="#" target="blank"><img class="logo" src="assets/images/inst.png"></a>
+                    <a href="#" target="blank"> <img class="logo" src="assets/images/facebook.png"></a>
+                    <a href="#" target="blank"> <img class="logo" src="assets/images/skype-logo.jpg"></a>
+                    <a href="#" target="blank"> <img class="logo" src="assets/images/twitter-logo.png"></a>
+                </p>
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+
+
+<script src="app.js"> </script>
+
+</html>
