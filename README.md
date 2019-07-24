@@ -4,4 +4,4 @@ This app allows users to find fresh news, save articles that they liked, leave n
 
 # Screenshots
 
-![Alt Text]()
+![Alt Text](https://user-images.githubusercontent.com/47117323/61829342-b9c9fc00-ae36-11e9-9d7c-e6b11e4125b1.gif)
