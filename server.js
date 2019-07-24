@@ -1,7 +1,7 @@
 var express = require("express");
 var logger = require("morgan");
 var mongoose = require("mongoose");
-var router = express.Router();
+// var router = express.Router();
 var mongojs = require("mongojs");
 var path = require('path')
 
@@ -12,8 +12,7 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
-var PORT = process.env.PORT || 3000;
-
+const port = process.env.PORT || 8000;
 // Initialize Express
 var app = express();
 
@@ -41,7 +40,7 @@ app.get('/saved_articles', function(req, res) {
 // mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useFindAndModify: false });
+mongoose.connect(MONGODB_URI, { useFindAndModify: false });
 
 
 
@@ -225,6 +224,9 @@ app.put("/deletenote/:id", function (req, res) {
 
 
 // Start the server
-app.listen(PORT, function () {
-    console.log("App running on port " + PORT + "!");
-});
+// app.listen(PORT, function () {
+//     console.log("App running on port " + PORT + "!");
+// });
+server.listen(port, function() {
+    console.log("App is running on port " + port);
+})
