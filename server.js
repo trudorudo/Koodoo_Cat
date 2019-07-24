@@ -228,6 +228,6 @@ app.put("/deletenote/:id", function (req, res) {
 // app.listen(PORT, function () {
 //     console.log("App running on port " + PORT + "!");
 // });
-server.listen(port, function() {
+app.listen(port, function() {
     console.log("App is running on port " + port);
 })
