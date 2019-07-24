@@ -38,9 +38,10 @@ app.get('/saved_articles', function(req, res) {
 
 // Connect to the Mongo DB
 // mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
-mongoose.connect(MONGODB_URI, { useFindAndModify: false });
+mongoose.connect(MONGODB_URI);
 
 
 
