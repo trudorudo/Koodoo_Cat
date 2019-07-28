@@ -29,11 +29,11 @@ app.use(express.static("public"));
 // Use morgan logger for logging requests
 
 //routes
-app.get('/', function(req, res) {
-    res.sendFile( path.resolve('public/index.html') );
+app.get('/', function (req, res) {
+    res.sendFile(path.resolve('public/index.html'));
 });
-app.get('/saved_articles', function(req, res) {
-    res.sendFile( path.resolve('public/saved.html') );
+app.get('/saved_articles', function (req, res) {
+    res.sendFile(path.resolve('public/saved.html'));
 });
 
 // Connect to the Mongo DB
@@ -42,12 +42,6 @@ app.get('/saved_articles', function(req, res) {
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 
 mongoose.connect(MONGODB_URI);
-
-
-
-
-// app.get("/saved", function(req, res) {
-//     res.json(path.join(__dirname, "public/saved.html"));
 
 // A GET route for scraping the echoJS website
 app.get("/scrape", function (req, res) {
@@ -89,7 +83,9 @@ app.get("/scrape", function (req, res) {
         });
 
         // Send a message to the client
-        res.send("Scrape Complete");
+        // res.send("Scrape Complete");
+        console.log("scrape is complete");
+        alert("scrape is complete")
     });
 });
 
@@ -173,53 +169,70 @@ app.get("/saved", function (req, res) {
 
 //router for grabbing article by id, populate it with its note
 app.get('/article/:id', function (req, res) {
+    // db.Article.find({ _id: req.params.id })
+    //     .populate({path: "note",
+    // populate: { path: "note"}
+    // })
+    //     .then(function (dbArticle) {
+    //         console.log(dbArticle);
+    //         res.json(dbArticle);
+    //     })
+    //     .catch(function (err) {
+    //         res.json(err);
+    //     })
+
     db.Article.findOne({ _id: req.params.id })
         .populate("note")
         .then(function (dbArticle) {
             res.json(dbArticle);
         })
         .catch(function (err) {
-            res.json(err);
+            res.json(err)
         })
+    // .exec((err, notes) => {
+    // console.log("Populated article" + notes);
+    // })
 });
 
 //post article's notes to database
-app.post("/article/:id", function(req, res) {
+app.post("/article/:id", function (req, res) {
     // console.log(req.body);
     db.Note.create(req.body)
-    
-    .then(function(dbNote){
-        console.log(dbNote.body);
-        return db.Article.findByIdAndUpdate ({ _id: req.params.id}, { note: dbNote._id}, {new: true});
-    })
-    .then(function(dbArticle){
-        res.json(dbArticle);
-    })
-    .catch(function(err){
-        res.json(err);
-    });
-   
+
+        .then(function (dbNote) {
+            console.log(dbNote.body);
+            return db.Article.findByIdAndUpdate({ _id: req.params.id }, { $push: { note: dbNote._id } }, { new: true });
+        })
+        .then(function (dbArticle) {
+            res.json(dbArticle);
+        })
+        .catch(function (err) {
+            res.json(err);
+        });
+
 });
 
 
 //delete notes
-app.put("/deletenote/:id", function (req, res) {
-    db.Article.findByIdAndDelete({_id: req.params.id}, {note: req.params.id})
-       .then (function (error, deleted) {
-        // show any errors
-        if (error) {
-            console.log(error);
-            res.send(error);
+app.get("/deletenote/:id", function (req, res) {
+    db.Note.findOneAndDelete(
+        {
+            _id: mongojs.ObjectID(req.params.id)
+        },
+        function (error, removed) {
+            if (error) {
+                console.log(error);
+                res.send(error);
+            }
+            else {
+                // Otherwise, send the mongojs response to the browser
+                // This will fire off the success function of the ajax request
+                console.log(removed);
+                res.send(removed);
+            }
         }
-        else {
-            // Otherwise, send the result of our update to the browser
-            console.log(deleted);
-            res.send(deleted);
-        }
-    }) 
-
-});
-
+    )
+})
 
 
 
@@ -228,6 +241,6 @@ app.put("/deletenote/:id", function (req, res) {
 // app.listen(PORT, function () {
 //     console.log("App running on port " + PORT + "!");
 // });
-app.listen(port, function() {
+app.listen(port, function () {
     console.log("App is running on port " + port);
 })
