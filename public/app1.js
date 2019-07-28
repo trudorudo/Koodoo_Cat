@@ -42,7 +42,7 @@ $(document).ready(function () {
     fetch(`/saved`).then(res => res.json()).then(articles => {
         var articlesDiv = document.querySelector('#savedArticlesDiv');
         articles.slice(0, 5).forEach(a => {
-            // console.log(a.title);
+            console.log(a);
             var articlesCard = document.createElement('div');
             articlesCard.className += "row"
             articlesCard.innerHTML = `
